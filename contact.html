@@ -28,7 +28,7 @@
     <main id="content" class="site-main container">
       <h1 class="section-title">Contact</h1>
       <p>Prefer email:</p>
-      <p><span class="button">haiwenli [AT] mit dot edu</span></p>
+      <p><a class="button" id="email-btn" data-user="haiwenli" data-domain="mit.edu" href="#">haiwenli[AT]mit.edu</a></p>
       <section class="section">
         <h2 class="section-title">Links</h2>
         <ul class="pub-list">
@@ -41,11 +41,22 @@
     <footer class="site-footer">
       <div class="container footer-row">
         <small>© <span id="year"></span> Haiwen Li</small>
-        <small>haiwenli [AT] mit dot edu</small>
+        <small>haiwenli[AT]mit.edu</small>
         <small>Built with GPT-5 assistance; authored and reviewed by Haiwen Li.</small>
       </div>
     </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const emailBtn = document.getElementById('email-btn');
+      if (emailBtn) {
+        emailBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const user = this.dataset.user;
+          const domain = this.dataset.domain;
+          window.location.href = `mailto:${user}@${domain}`;
+        });
+      }
+    </script>
   </body>
   </html>
 
