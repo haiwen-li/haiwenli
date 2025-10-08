@@ -67,8 +67,8 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 480px) {
   .container {
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: min(5vw, 20px);
+    padding-right: min(5vw, 20px);
   }
   body, html {
     overflow-x: hidden;
