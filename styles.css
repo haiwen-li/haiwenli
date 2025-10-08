@@ -65,5 +65,14 @@ a { color: inherit; text-decoration: none; }
   .cards { grid-template-columns: 1fr; }
   .hero-title { font-size: 32px; }
 }
+@media (max-width: 480px) {
+  .container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  body, html {
+    overflow-x: hidden;
+  }
+}
 
 
