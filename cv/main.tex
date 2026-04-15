@@ -1,0 +1,335 @@
+%
+%Academic CV LaTeX Template
+% Author: Dubasi Pavan Kumar
+% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
+% License: MIT
+%
+% For errors, suggestions, or improvements, please contact:
+% Email: pavankumard.pg19.ma@nitp.ac.in
+%
+
+
+
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+% \usepackage{fontawesome5} % commented out: only used in disabled social links section
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{HAIWEN LI}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    +1-805-637-5198 | \href{mailto:youremail@example.com}{haiwenli@mit.edu}
+    }
+\end{center}
+\vspace{-6mm}
+
+% \begin{center}
+%     \small{
+%     \socialicon{\faLinkedin} \href{https://www.linkedin.com/in/your-profile/}{your-profile} | 
+%     \socialicon{\faGithub} \href{https://github.com/your-username}{your-username} | 
+%     \ieeeicon{\includegraphics[height=1.3em]{ieee_collabratec_icon.png}} \href{https://ieee-collabratec.ieee.org/app/p/your-profile}{your-profile} |
+%     \socialicon{\faTwitter} \href{https://twitter.com/your-handle}{your-handle}
+%     }
+% \end{center}
+% \vspace{-6mm}
+
+\begin{center}
+    \small{Cambridge, MA 02139}
+\end{center}
+
+\vspace{-4mm}
+
+% \section{\textbf{Objective}}
+% \vspace{1mm}
+% \small{
+% Seeking a challenging position in [your field] to leverage my expertise in [your key skills]. Aiming to contribute to innovative projects at the intersection of [your interests] and practical problem-solving in fields such as [specific areas of interest].
+% }
+% \vspace{-2mm}
+
+\section{\textbf{Research Interests}}
+Human-AI/LLM Interaction, Computational Social Science, Social Computing
+\vspace{-0.4mm}
+
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Massachusetts Institute of Technology}{Cambridge, MA}
+{Ph.D. in Social and Engineering Systems}{September 2022 - June 2027 (expected)}
+\resumeItemListStart
+\item GPA: 5.0/5.0
+\resumeItemListEnd
+\resumeItemListStart
+\item Relevant coursework: Probability Theory, Statistical Inference, Information Theory, Econometrics and Causal Inference
+\resumeItemListEnd
+
+\resumeSubheading
+{University of California, Los Angeles}{Los Angeles, CA}
+{B.S. in Statistics (UCLA Honors Program)}{June 2022}
+\resumeItemListStart
+\item GPA: 3.96/4.0 (Summa Cum Laude)
+\resumeItemListEnd
+\resumeItemListStart
+\item Relevant coursework: Statistical Modeling and Inference, Statistical Models in Finance, Machine Learning, Reinforcement Learning
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-1mm}
+
+
+\section{\textbf{Publications}}
+\vspace{1mm}
+\textbf{AI Fact-Checking in the Wild: A Field Evaluation of LLM-Written Community Notes on X} \href{https://arxiv.org/abs/2604.02592}{[Paper]} \href{https://haiwen-li.github.io/ai-fact-checking-in-the-wild/}{[Project]}\\
+\hspace{6mm} \textbf{Haiwen Li}, Michiel A. Bakker \\
+\hspace{6mm} \textit{preprint} \\[1.5mm]
+\textbf{The Rise of AI Search: Implications for Information Markets and Human Judgement at Scale} \href{https://arxiv.org/abs/2602.13415}{[Paper]} \\
+\hspace{6mm} Sinan Aral, \textbf{Haiwen Li}, Rui Zuo \\
+\hspace{6mm} \textit{preprint} \\[1.5mm]
+\textbf{Trusting GenAI: A Large Scale Generative Search Experiment} \\
+\hspace{6mm} \textbf{Haiwen Li}, Sinan Aral \\
+\hspace{6mm} \textit{Accepted at Nature Human Behavior} \\[1.5mm]
+\textbf{Scaling Human Judgment in Community Notes with LLMs} \href{https://tsjournal.org/index.php/jots/article/view/255}{[Paper]} \\
+\hspace{6mm} \textbf{Haiwen Li}, Soham De, Manon Revel, Andreas Haupt, Brad Miller, Keith Coleman, Jay Baxter, Martin Saveski, Michiel A. Bakker \\
+\hspace{6mm} \textit{Journal of Online Trust and Safety (2025)} \\[1.5mm]
+\textbf{Nudge Users to Catch Generative AI Errors} \href{https://sloanreview.mit.edu/article/nudge-users-to-catch-generative-ai-errors/}{[Paper]} \\
+\hspace{6mm} Renée Gosline, Yunhao Zhang, \textbf{Haiwen Li}, Accenture Research \\
+\hspace*{6mm}\textit{MIT Sloan Management Review (2024)}
+
+\section{\textbf{Research Experience}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {{Massachusetts Institute of Technology}}{Cambridge, MA}
+      {Research Assistant}{Fall 2023 - }
+  \resumeSubheading
+      {{Visual Intelligence Lab (UCLA)}}{Los Angeles, CA}
+      {Research Assistant}{September 2021 - March 2022}
+      \resumeItemListStart
+        \item Implemented reinforcement learning algorithms and neural networks to construct a solver that significantly reduces the computational cost of large-scale partially observable MDP
+      \resumeItemListEnd 
+  \resumeSubheading
+    {Center for Vision, Cognition, Learning, and Autonomy (UCLA)}{Los Angeles, CA}
+    {Research Assistant for Reasoning in Vision, Language, and Knowledge}{June 2021 - August 2021}
+    \resumeItemListStart
+      \item Created interactive visualizations for a Question-Answering dataset
+    \resumeItemListEnd
+    %  \resumeSubheading
+    % {ASA DataFest team competition at UCLA}{Los Angeles, CA}
+    % {Research Assistant for Reasoning in Vision, Language, and Knowledge}{Spring 2021}
+    % \resumeItemListStart
+    %   \item Built all-in-one NLP analysis tool for scrapping, parsing, annotating, clustering analysis, and sentiment analysis
+    % \resumeItemListEnd
+    \resumeSubheading
+    {MIT Sloan School of Management}{Remote}
+    {Research Assistant}{March 2020 - October 2020}
+    \resumeItemListStart
+     \item Developed text-based product classifier using latent semantic analysis and XGBoost algorithm
+     \item Studied how tiktok video features drive video engagement and product sales
+     \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-1mm}
+
+\section{\textbf{Teaching Experience}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {{MIT Sloan School of Management}}{Cambridge, MA}
+      {Teaching Assistant for Digital Marketing and Social Media Analytics (Student Feedback: 6.3/7.0)}{Fall 2024}
+      \resumeItemListStart
+        \item Conducted recitation sessions on empirical causal inference analysis
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-1mm}
+
+\section{\textbf{Invited Presentations}}
+\vspace{1mm}
+\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0mm,parsep=0mm]
+\item \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r} \textbf{2026 INFORMS Annual Meeting} & \textit{\footnotesize{2026}} \end{tabular*}
+\item \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r} \textbf{2026 IDE Annual Conference} & \textit{\footnotesize{2026}} \end{tabular*}
+\item \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r} \textbf{The 4th Annual Trust and Safety Research Conference} & \textit{\footnotesize{2025}} \end{tabular*}
+\end{itemize}
+\vspace{-1mm}
+
+\section{\textbf{Honors and Awards}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+\resumeProject
+  {Michael Hammer Fellowship}
+  {Institute for Data, Systems, and Society, MIT}
+  {2022}
+  {{}}
+
+\resumeProject
+  {Dean’s Honors List}
+  {University of California, Los Angeles}
+  {2020, 2021}
+  {{}}
+\resumeSubHeadingListEnd
+
+\section{\textbf{Service}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+\resumeProject
+{Reviewer}
+  {CSCW 2025, HAI 2025}
+  {2025}
+  {{}}
+\resumeSubHeadingListEnd
+\vspace{-1mm}
+
+
+
+
+
+
+\end{document}
