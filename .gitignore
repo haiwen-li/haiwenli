@@ -1,1 +1,29 @@
 cv/FORMATTING.md
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+missfont.log
+texput.log
+cv/README.txt
+cv/main.pdf
+cv/latexmkrc
+cv/ieee_collabratec_icon.png
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/
+CLAUDE.md
+.claude.json
